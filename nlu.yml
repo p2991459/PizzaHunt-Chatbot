@@ -1,0 +1,211 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hii
+    - hello
+    - hey
+    - hello dude
+- intent: my_name
+  examples: |
+    - my name is [pankaj]{"entity": "name", "value": "pankaj"}
+    - my name is [geeta]{"entity": "name", "value": "geeta"}
+    - my name is [dubey]{"entity": "name", "value": "dubey"}
+    - my name is [pankaj]{"entity": "name", "value": "pankaj"}
+    - i am [sumit]{"entity": "name", "value": "sumit"}
+    - [dev]{"entity": "name", "value": "dev"} this side
+    - [neha]{"entity": "name", "value": "neha"} is my name
+    - my name is [xydfjfa](name)
+    - my name is [fakjfaafkjafa](name)
+    - my name is [opdfajaerueirand](name)
+    - my name is [durgesh](name)
+    - my name is [pankaj](name)
+
+- intent: user_ask_menu_card
+  examples: |
+    - show me menu card
+    - menu card please
+    - can you show me menu card
+    - please show me menu card
+    - what is tody's menu
+    - what is today
+    - menu
+    - Menu please
+    - please show me tody's menu
+    - show me some pizzas in your menu card
+    - I need menu
+            
+
+- intent: user_req_pizza
+  examples: |
+    - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - I want [Funghi](pizza_type) pizza
+    - I want [funghi](pizza_type) pizza please
+    - I [hawaii](pizza_type) pizza small
+    - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
+    - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
+    - [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizza
+    - [2](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizza
+    - [4](pizza_amount) [small](pizza_size) [Vegetarian](pizza_type) pizza pizza
+    - [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
+    - [two](pizza_amount) [large](pizza_size) pizza [hawaii](pizza_type)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Margherita](pizza_type)
+    - [4](pizza_amount) [large](pizza_size) pizza [Hawaii](pizza_type)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Pepperoni](pizza_type)
+    - [four](pizza_amount) [small](pizza_size) pizza [Vegetarian](pizza_type)
+    - [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza
+    - [one](pizza_amount) [Margherita](pizza_type) [medium](pizza_size) pizza
+    - [1](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) pizza
+    - [one](pizza_amount) [Pepperoni](pizza_type)[medium](pizza_size) pizza
+    - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
+    - [one](pizza_amount) [Funghi](pizza_type) pizza [small](pizza_size)
+    - [one](pizza_amount) [Margherita](pizza_type) pizza [medium](pizza_size)
+    - [1](pizza_amount) [Hawaii](pizza_type) pizza [large](pizza_size)
+    - [one](pizza_amount) [Pepperoni](pizza_type) pizza[medium](pizza_size)
+    - [3](pizza_amount) [Vegetarian](pizza_type) pizza [small](pizza_size)
+    - [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - [Margherita](pizza_type) [medium](pizza_size) pizza [6](pizza_amount)
+    - [Hawaii](pizza_type) [large](pizza_size) pizza [9](pizza_amount)
+    - [Pepperoni](pizza_type)[medium](pizza_size) pizza  [4](pizza_amount)
+    - [Vegetarian](pizza_type) [small](pizza_size) pizza [two](pizza_amount)
+    - [Funghi](pizza_type) pizza [small](pizza_size)  [three](pizza_amount)
+    - [Margherita](pizza_type) pizza [medium](pizza_size)  [6](pizza_amount)
+    - [Hawaii](pizza_type) pizza [large](pizza_size)  [9](pizza_amount)
+    - [Pepperoni](pizza_type) pizza [medium](pizza_size)   [4](pizza_amount)
+    - [Vegetarian](pizza_type) pizza[small](pizza_size)  [two](pizza_amount)
+    - [Funghi](pizza_type) pizza
+    - [Margherita](pizza_type) pizza
+    - [Hawaii](pizza_type) pizza
+    - [Pepperoni](pizza_type) pizza
+    - [Vegetarian](pizza_type) pizza pizza
+    - [Funghi](pizza_type)
+    - [Margherita](pizza_type)
+    - [Hawaii](pizza_type)
+    - [Pepperoni](pizza_type)
+    - [Vegetarian](pizza_type)
+    - [hawaii](pizza_type) pizza small
+    - [hawaii](pizza_type) pizza small please
+    - small [hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) pizza [marherita](pizza_type) please
+    - [jumbo](pizza_type)
+    - [two](pizza_amount)
+    - [2](pizza_amount)
+    - [two](pizza_amount) please
+    - [2](pizza_amount) please
+    - [large](pizza_size) please
+    - [large](pizza_size)
+    - just [one](pizza_amount)
+    - just [1](pizza_amount)
+    - [one](pizza_amount) pizza [funghi](pizza_type)
+    - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
+    - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
+    - i want pizza
+    - [Fungi](pizza_type) pizza
+    - [small](pizza_size)
+    - order a pizza
+    - [Fungi](pizza_type) pizza
+    - [2](pizza_amount) pizzas
+    - [small](pizza_size)
+- intent: user_said_yes
+  examples: |
+    - all good
+    - yeah all is sgood
+    - yep
+    - yeah
+    - perfect
+    - yes, that is right
+    - yes
+    - that's right
+    - correct
+    - Yes
+    - Yeah
+- intent: user_said_no
+  examples: |
+    - actually no
+    - nope
+    - no
+    - Nope
+    - No, I want to make a change
+    - Noo
+- intent: user_name_number
+  examples: |
+    - [pankaj](client_name) phone [8305039922](phone_number)
+    - [Ayush](client_name) and [098765432](phone_number)
+    - [Rahul](client_name)[098765432](phone_number)
+    - [Vijay](client_name) and my number is  [098765432](phone_number)
+    - number is [9845586242](phone_number) and name is [guru](client_name)
+    - my name is [sheeta](client_name) and number is [5685436546](phone_number)
+    - my name is akash and mobile number is [89785698258](phone_number)
+    - my name is [pankaj](client_name) and phone number is [952826182](phone_number)
+- intent: user_take_delivery
+  examples: |
+    - delivery please
+    - delivery
+    - i prefer delivery
+    - home delivery
+- intent: user_delivery_address
+  examples: |
+    - my address is #46, 655 avenue du technopole
+    - #46, 655 avenue du technopole
+    - house number 46 street 655 avenue du technopole
+    - house num 46  655 avenue du technopole street
+    - Hs No 46  655 avenue du technopole street
+    - Hs No. 46  655 avenue du technopole street
+    - my address is house number 46 street 655 avenue du technopole
+    - my address is house num 46  655 avenue du technopole street
+    - my address is Hs No 46  655 avenue du technopole street
+    - my address is Hs No. 46  655 avenue du technopole street
+    - house number 46 mhow naka indore
+    - house number 98 bada ganpati indore
+
+
+- intent: user_order_cancellation
+  examples: |
+    - hey I want to cancel the order
+    - please cancel my order
+    - can you cancel my order please
+    - cancel my order right now
+    - hii can I cancel my order
+    - order cancel please
+
+- intent: user_order_number
+  examples: |
+    - my order number is [458569](cancel_number)
+    - [4585645](cancel_number)
+    - yes it is [586285](cancel_number)
+    - the order number is [186284](cancel_number)
+    - order number is [186284](cancel_number)
+    - the number is [1862584](cancel_number)
+    - number is [18476284](cancel_number)
+
+- intent: affirm
+  examples: |
+    - thank you
+    - thanks
+    - thank you so much
+    - thanks dude
+    - oh thanks
+    - okay thanks
+    - ok thanks
+    - thank you man
+    - very very thank you
+    - I loved your services thank you so much
+    - order received thank you so much
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - good morning 
+    - good evening
+    - what I have written correct
+    - what is my mother name
+    - who are you
+    - I am big fan of you
+    - fkfdkfdhfajoiefa
+    - fkjfahofhaetierif
+    - aopfodfkjek

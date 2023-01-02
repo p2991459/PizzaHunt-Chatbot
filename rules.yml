@@ -1,0 +1,57 @@
+version: "3.1"
+
+rules:
+
+
+
+- rule: active_form_pizza_order_form
+  steps:
+  - intent: user_req_pizza
+  - action: action_reset_form_slot
+  - action: pizza_order_form
+  - active_loop:  pizza_order_form
+
+
+- rule: Submit form
+  condition:
+  - active_loop: pizza_order_form
+  steps:
+  - action: pizza_order_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_form_submit
+
+- rule: rr1
+  steps:
+  - intent: greet
+  - action: action_user_logged
+
+- rule: rr2
+  steps:
+  - intent: my_name
+  - action: action_tell_name
+
+
+- rule: rr3
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: menu-card-showcase
+  steps:
+  - intent: user_ask_menu_card
+  - action: utter_show_menu

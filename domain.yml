@@ -1,0 +1,99 @@
+version: '3.1'
+intents:
+- greet
+- my_name
+- user_delivery_address
+- user_name_number
+- user_req_pizza
+- user_said_no
+- user_said_yes
+- user_take_delivery
+- user_order_cancellation
+- user_order_number
+- affirm
+- user_ask_menu_card
+entities:
+- pizza_size
+- pizza_type
+- name
+- phone_number
+- pizza_amount
+- client_name
+- cancel_number
+slots:
+  client_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: client_name
+  phone_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  pizza_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+  pizza_size:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+  pizza_amount:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pizza_amount
+  cancel_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: cancel_number
+forms:
+  pizza_order_form:
+    required_slots:
+    - pizza_type
+    - pizza_amount
+    - pizza_size
+responses:
+
+  utter_ask_away_or_home:
+  - text: "Do you prefer takeaway or home delivery."
+  utter_res_delivery_address:
+  - text: "Please provide delivery address."
+  utter_ask_pizza_type:
+  - text: "What type of pizza do you want? Ask to show menu for more details."
+  utter_ask_pizza_amount:
+  - text: "How many pizzas do you want? Ask to show menu for more details."
+  utter_ask_pizza_size:
+  - text: "What size of pizza do you want? Ask to show menu for more details."
+  utter_res_cancellation:
+    - text: "Okay ! please provide your order number."
+  utter_default:
+    - text: "Sorry, I didn’t understand that. Can you please retype it?"
+  utter_affirm:
+    - text: "Welcome {name} !I am always here to serve you."
+  utter_out_of_scope:
+    - text: "Sorry, I can't handle that request."
+  utter_show_menu:
+    - text: "Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian,
+        all available in sizes Small, Medium or Large . What would you like to have?"
+actions:
+- action_form_submit
+- action_order_number
+- action_reset_form_slot
+- action_tell_name
+- action_user_logged
+- action_res_order_confirm_if_yes
+- action_user_said_no
+- action_res_order_cancel
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

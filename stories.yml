@@ -1,0 +1,79 @@
+version: "3.1"
+
+stories:
+
+- story: name_story
+  steps:
+  - intent: my_name
+  - action: action_tell_name
+
+
+- story: simple_story
+  steps:
+  - intent: greet
+  - action: action_user_logged
+  - intent: user_req_pizza
+  - action: action_reset_form_slot
+  - action: pizza_order_form
+  - active_loop:  pizza_order_form
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_form_submit
+  - intent: user_said_yes
+  - action: action_res_order_confirm_if_yes
+  - intent: user_said_no
+  - action: action_user_said_no
+  - intent: user_name_number
+  - action: utter_ask_away_or_home
+  - intent: user_take_delivery
+  - action: utter_res_delivery_address
+  - intent: user_delivery_address
+  - action: action_order_number
+
+- story: after_form_submit
+  steps:
+  - intent: user_said_yes
+  - action: action_res_order_confirm_if_yes
+  - intent: user_said_no
+  - action: action_user_said_no
+  - intent: user_name_number
+  - action: utter_ask_away_or_home
+  - intent: user_take_delivery
+  - action: utter_res_delivery_address
+  - intent: user_delivery_address
+  - action: action_order_number
+
+- story: order_cancellation
+  steps:
+    - intent: user_order_cancellation
+    - action: utter_res_cancellation
+    - intent: user_order_number
+    - action: action_res_order_cancel
+
+
+- story: back_track_stroy
+  steps:
+  - intent: user_name_number
+  - action: utter_ask_away_or_home
+  - intent: user_take_delivery
+  - action: utter_res_delivery_address
+  - intent: user_delivery_address
+  - action: action_order_number
+
+
+- story: back_track_stroy_2
+  steps:
+  - intent: user_delivery_address
+  - action: action_order_number
+
+- story: back_track_stroy_3
+  steps:
+  - intent: user_said_no
+  - action: action_user_said_no
+  - intent: user_name_number
+  - action: utter_ask_away_or_home
+  - intent: user_take_delivery
+  - action: utter_res_delivery_address
+  - intent: user_delivery_address
+  - action: action_order_number
